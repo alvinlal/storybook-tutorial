@@ -4,18 +4,35 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 export default {
   title: 'Components/Buttons/Button',
   component: Button,
+  argTypes: { onClick: { action: 'onClick' } },
 } as ComponentMeta<typeof Button>;
 
-export const Primary: ComponentStory<typeof Button> = () => (
-  <Button variant='primary'>Primary</Button>
-);
+const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
-export const Secondary: ComponentStory<typeof Button> = () => (
-  <Button variant='secondary'>Secondary</Button>
-);
+export const Primary = Template.bind({});
 
-export const Success: ComponentStory<typeof Button> = () => (
-  <Button variant='success'>Success</Button>
-);
+Primary.args = {
+  variant: 'primary',
+  children: 'primary',
+};
 
-export const Danger: ComponentStory<typeof Button> = () => <Button variant='danger'>Danger</Button>;
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  variant: 'secondary',
+  children: 'secondary',
+};
+
+export const Success = Template.bind({});
+
+Success.args = {
+  variant: 'success',
+  children: 'success',
+};
+
+export const Danger = Template.bind({});
+
+Danger.args = {
+  variant: 'danger',
+  children: 'danger',
+};

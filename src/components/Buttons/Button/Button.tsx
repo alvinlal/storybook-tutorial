@@ -3,11 +3,13 @@ import './Button.css';
 export interface IButtonProps {
   variant: 'primary' | 'secondary' | 'danger' | 'success';
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
-const Button: React.FC<IButtonProps> = ({ variant = 'primary', children, ...rest }) => {
+const Button: React.FC<IButtonProps> = ({ variant = 'primary', onClick, children, ...rest }) => {
+  console.log('ts');
   return (
-    <button className={`button ${variant}`} {...rest}>
+    <button onClick={onClick} className={`button ${variant}`} {...rest}>
       {children}
     </button>
   );
